@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<style>
+  body{
+  color:white;
+  }
+</style>
+
+<div class="container mx-auto">
+<h2 class="text-center">MOVIE DETAILS</h2>
+
+<div class="card mb-3 mt-3 mx-auto" style="max-width: 540px;background-color:#EBF4F6;color:black;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{movie.image.url}}" class=" rounded-start p-3" height="400px" width="100%" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{movie.title}}</h5>
+        <p class="card-text">{{movie.year}}</p>
+        <p class="card-text">{{movie.language}}</p>
+          <p class="card-text">{{movie.description}}</p>
+        <a href="{% url 'app1:home'  %}" class="btn text-light" style="background-color:#088395;">go back</a>
+        <a href="{% url 'app1:edit' movie.id %}" class="btn text-light" style="background-color:#088395;">Edit</a>
+      <a href="{% url 'app1:delete' movie.id %}" class="btn text-light" style="background-color:#088395;">Delete</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+{% endblock %}

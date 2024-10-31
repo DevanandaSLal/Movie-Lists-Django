@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        {% for i in movie %}
+        <div class="col-sm-4 " >
+            <div class="card mx-auto" style="width: 18rem;">
+  <img src="{{i.image.url}}" class="card-img-top" width="100%" height="200px" alt="...">
+  <div class="card-body">
+    <h5 class="card-title text-dark">{{i.title}}</h5>
+    <p class="card-text ext-dark">{{i.year}}</p>
+      <p class="card-text text-dark">{{i.language}}</p>
+      <a href="{% url 'app1:details' i.id %}" class="btn text-light" style="background-color:#088395;">Details</a>
+
+  </div>
+</div>
+
+
+
+
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

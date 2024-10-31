@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h2 class="text-center text-light">Add Movie</h2>
+
+<div class="container" style="width:50%;">
+
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label  class="form-label text-light">Title</label>
+    <input type="text" class="form-control" name="t"  value="{{movie.title}}" placeholder="enter title">
+  </div>
+
+    <div class="mb-3">
+    <label  class="form-label text-light">Description</label>
+    <textarea class="form-control"  name="d" rows="3"  placeholder="enter description here">{{ movie.description }}</textarea>
+  </div>
+
+    <div class="mb-3">
+    <label  class="form-label text-light">Year</label>
+    <input type="number" class="form-control" name="y" value="{{movie.year}}" placeholder="enter year">
+  </div>
+
+    <div class="mb-3">
+    <label  class="form-label text-light">Language</label>
+    <input type="text" class="form-control" name="l"  value="{{movie.language}}" placeholder="enter language">
+  </div>
+
+    <div class="mb-3">
+    <label  class="form-label text-light">Images</label>
+     <img src="{{movie.image.url}}" height="100px" width="100px">
+    <input type="file" class="form-control" name="i">
+  </div>
+
+
+<!--  <input type="submit" value="ADD MOVIE" style="background-color:#3A6D8C;">-->
+  <button type="submit" class="btn" style="background-color:#3A6D8C;color:white;">EDIT MOVIE</button>
+</form>
+
+</div>
+
+{% endblock %}
